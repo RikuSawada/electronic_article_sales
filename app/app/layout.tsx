@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Noto_Sans_JP} from "next/font/google"
 import "./globals.css";
 
 const geistSans = localFont({
@@ -12,6 +13,8 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight:["400"]})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={notoSansJP.className}
       >
         {children}
       </body>
