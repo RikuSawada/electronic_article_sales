@@ -16,6 +16,8 @@ RUN npm install -g vercel
 # ソースコードをコピー
 COPY . .
 
+RUN npx prisma generate
+
 # ポート3000でNext.jsが動作するように設定
 EXPOSE 3000
 
