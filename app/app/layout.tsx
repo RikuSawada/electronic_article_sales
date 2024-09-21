@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Noto_Sans_JP} from "next/font/google"
 import "./globals.css";
+import Header from "./components/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,9 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={notoSansJP.className}
-      >
+      <body className={notoSansJP.className}>
+        <Header></Header>
         {children}
       </body>
     </html>
