@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint_fix": "next lint --fix",
+    "eslint": "eslint .",
+    "prettier": "prettier . --write"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
@@ -21,9 +24,11 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^8.57.1",
     "eslint-config-next": "14.2.8",
+    "eslint-config-prettier": "^9.1.0",
     "postcss": "^8",
+    "prettier": "3.3.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
