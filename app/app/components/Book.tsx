@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 // eslint-disable-next-line react/display-name
 const Book = ({ book }: any) => {
