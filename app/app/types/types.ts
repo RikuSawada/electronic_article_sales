@@ -1,11 +1,26 @@
 type BookType = {
-    id: number;
-    title: string;
-    content: string;
-    price: number;
-    thumbnail: { url: string };
-    createAt: string;
-    updateAt: string;
-}
+  id: string;
+  title: string;
+  price: number;
+  content: string;
+  thumbnail: { url: string };
+  created_at: string;
+  updated_at: string;
+};
 
-export type { BookType }
+type Purchase = {
+  id: string;
+  userId: string;
+  bookId: string;
+  sessionId: string;
+  createdAt: string;
+};
+
+type User = {
+  id: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  image?: string | null | undefined;
+};
+
+export type { BookType, Purchase, User };
