@@ -1,10 +1,10 @@
 export type BookProps = {
   book: {
-    thumbnail: string;
-    title: string;
-    author: {
-      description: string;
+    thumbnail: {
+      url: string;
     };
+    title: string;
+    content: string;
     price: number;
   };
 };

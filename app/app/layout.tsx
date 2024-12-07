@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP} from "next/font/google"
 import "./globals.css";
 import Header from "./components/Header";
+import { SessionProvider } from "next-auth/react";
+import { Session } from "inspector/promises";
+import Head from "next/head";
+import { NextAuthProvider } from "./lib/next-auth/provider";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -30,8 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={notoSansJP.className}>
+        <NextAuthProvider>
         <Header></Header>
         {children}
+        </NextAuthProvider>
       </body>
     </html>
   );
