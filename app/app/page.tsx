@@ -14,18 +14,21 @@ export default async function Home() {
 
   const { contents } = await getAllBooks();
 
-  let purchaseBookIds: String[];
+  let purchasedIds: String[] = [];
 
   if (user) {
+    try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/purchases/${user.id}`
       );
-        const purchasesData = await response.json();
+      const purchasesData = await response.json();
 
-    
-      purchaseBookIds = purchasesData.map(
+      purchasedIds = purchasesData.map(
         (purchaseBook: Purchase) => purchaseBook.bookId
       );
+    } catch (error) {
+      console.error("Error fetching purchased books:", error);
+    }
   }
 
   return (
@@ -35,7 +38,11 @@ export default async function Home() {
           電子書籍
         </h2>
         {contents.map((book: BookType) => (
-          <Book key={book.id} book={book} isPurchased={ purchaseBookIds.includes(book.id)} />
+          <Book
+            key={book.id}
+            book={book}
+            isPurchased={purchasedIds.includes(book.id)}
+          />
         ))}
       </main>
     </>

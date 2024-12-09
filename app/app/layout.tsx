@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
-import { Noto_Sans_JP} from "next/font/google"
+import { Noto_Sans_JP } from "next/font/google"
 import "./globals.css";
 import Header from "./components/Header";
 import { SessionProvider } from "next-auth/react";
 import { Session } from "inspector/promises";
 import Head from "next/head";
 import { NextAuthProvider } from "./lib/next-auth/provider";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -19,7 +21,7 @@ import { NextAuthProvider } from "./lib/next-auth/provider";
 //   weight: "100 900",
 // });
 
-const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight:["400"]})
+const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight: ["400"] })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,8 +37,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={notoSansJP.className}>
         <NextAuthProvider>
-        <Header></Header>
-        {children}
+          <Header></Header>
+          <Suspense fallback={<Loading/>}>{children}</Suspense>
         </NextAuthProvider>
       </body>
     </html>
