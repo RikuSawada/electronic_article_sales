@@ -1,6 +1,9 @@
 # ベースイメージとしてNode.jsを使用
 FROM node:18-alpine
 
+# 必要なパッケージをインストール
+RUN apk add --no-cache bash openssl
+
 # 作業ディレクトリを設定
 WORKDIR /app
 
@@ -16,6 +19,7 @@ RUN npm install -g vercel
 # ソースコードをコピー
 COPY . .
 
+# Prismaクライアントの生成
 RUN npx prisma generate
 
 # ポート3000でNext.jsが動作するように設定

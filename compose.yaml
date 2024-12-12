@@ -11,6 +11,6 @@ services:
     volumes:
       - ./app:/app
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
     stdin_open: true
     tty: true
