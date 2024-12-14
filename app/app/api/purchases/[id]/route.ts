@@ -1,4 +1,4 @@
-import prisma from "@/app/lib/prisma";
+import prisma from "../../../lib/prisma";
 import { NextResponse } from "next/server";
 
 //購入履歴取得API
