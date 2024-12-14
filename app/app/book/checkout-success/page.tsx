@@ -13,7 +13,7 @@ const PurchaseSuccess = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (sessionId) {
-        console.log(sessionId);
+        // console.log(sessionId);
         try {
           const response = await fetch(
             `${process.env.NEXT_PUBLIC_API_URL}/checkout/success`,
@@ -25,7 +25,7 @@ const PurchaseSuccess = () => {
           );
           const data = await response.json();
           setBookUrl(data.purchase.bookId);
-          console.log("Book URL set:", data.purchase.bookId);
+          // console.log("Book URL set:", data.purchase.bookId);
         } catch (error) {
           console.error("Error fetching data: ", error);
         }
